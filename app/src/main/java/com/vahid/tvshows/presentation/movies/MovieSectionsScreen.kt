@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.vahid.tvshows.data.remote.model.Movie
 import com.vahid.tvshows.data.remote.model.MovieSections
@@ -36,6 +37,7 @@ import com.vahid.tvshows.data.remote.model.Sections
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MovieSectionsScreen(
+    navController: NavController,
     viewModel: MovieSectionsViewModel = hiltViewModel()
 ) {
     val sectionsResult = viewModel.movieSectionsResult.collectAsStateWithLifecycle()

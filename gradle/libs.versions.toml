@@ -18,6 +18,7 @@ kotlinCoroutines = "1.8.0"
 mockitoCore = "4.8.0"
 androidxCore = "2.2.0"
 mockitoKotlin = "2.2.0"
+navigaiton = "2.8.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,6 +43,7 @@ mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mo
 mockito-kotlin = { group = "com.nhaarman.mockitokotlin2", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
 androidx-arch-core = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCore" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigaiton" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
