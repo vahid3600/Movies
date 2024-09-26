@@ -50,6 +50,7 @@ import com.vahid.tvshows.R
 import com.vahid.tvshows.data.local.model.MovieEntity
 import com.vahid.tvshows.data.remote.model.MovieDetails
 import com.vahid.tvshows.data.remote.model.RequestResult
+import com.vahid.tvshows.presentation.SharedData
 import com.vahid.tvshows.presentation.ui.component.SectionHeader
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -210,6 +211,8 @@ fun LikeButton(movieDetails: MovieDetails, modifier: Modifier = Modifier) {
                 .padding(7.dp)
                 .clickable {
                     likeStatus = !likeStatus
+                    if (likeStatus)
+                        SharedData.likedMovie.value = movieDetails.content.id
                 },
             painter = painterResource(id = if (likeStatus) R.drawable.like_active else R.drawable.like),
             contentDescription = stringResource(R.string.play),
