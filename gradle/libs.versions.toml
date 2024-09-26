@@ -19,6 +19,7 @@ mockitoCore = "4.8.0"
 androidxCore = "2.2.0"
 mockitoKotlin = "2.2.0"
 navigaiton = "2.8.1"
+room = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +45,9 @@ mockito-kotlin = { group = "com.nhaarman.mockitokotlin2", name = "mockito-kotlin
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
 androidx-arch-core = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidxCore" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigaiton" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

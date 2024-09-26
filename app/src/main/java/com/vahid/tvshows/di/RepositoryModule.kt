@@ -1,7 +1,9 @@
 package com.vahid.tvshows.di
 
-import com.vahid.tvshows.data.repository.MovieRepository
-import com.vahid.tvshows.data.repository.MovieRepositoryImpl
+import com.vahid.tvshows.data.local.repository.MovieLocalRepository
+import com.vahid.tvshows.data.local.repository.MovieLocalRepositoryImpl
+import com.vahid.tvshows.data.repository.MovieRemoteRepository
+import com.vahid.tvshows.data.repository.MovieRemoteRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -12,7 +14,12 @@ import dagger.hilt.android.components.ViewModelComponent
 interface RepositoryModule {
 
     @Binds
-    fun bindMovieRepository(
-        movieRepositoryImpl: MovieRepositoryImpl
-    ): MovieRepository
+    fun bindMovieRemoteRepository(
+        movieRemoteRepository: MovieRemoteRepositoryImpl
+    ): MovieRemoteRepository
+
+    @Binds
+    fun bindMovieLocalRepository(
+        movieLocalRepository: MovieLocalRepositoryImpl
+    ): MovieLocalRepository
 }

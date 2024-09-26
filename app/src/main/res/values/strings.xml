@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tv Shows</string>
+    <string name="play">پخش</string>
+    <string name="movie_images">تصاویر فیلم</string>
 </resources>

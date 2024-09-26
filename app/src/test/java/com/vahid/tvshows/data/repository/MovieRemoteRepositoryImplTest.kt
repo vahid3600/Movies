@@ -9,15 +9,22 @@ import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class MovieRepositoryImplTest {
+class MovieRemoteRepositoryImplTest {
 
     private val movieApi: MovieApi = mock()
-    private val movieRepositoryImpl = MovieRepositoryImpl(movieApi)
+    private val movieRepositoryImpl = MovieRemoteRepositoryImpl(movieApi)
 
     @Test
     fun `getMovieSections calls movieApi getMovieSections`() = runTest {
         movieRepositoryImpl.getMovieSections()
 
         verify(movieApi).getMovieSections()
+    }
+
+    @Test
+    fun `getMovieDetails calls movieApi getMovieDetails`() = runTest {
+        movieRepositoryImpl.getMovieDetails("12345")
+
+        verify(movieApi).getMovieDetails("12345")
     }
 }
