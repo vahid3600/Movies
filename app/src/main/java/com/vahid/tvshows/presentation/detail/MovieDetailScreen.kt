@@ -145,6 +145,7 @@ fun MovieDetailsScrollableColumn(
                     .padding(50.dp, 118.dp, 50.dp, 0.dp),
                 textAlign = TextAlign.End
             )
+            MovieDetailsList(movieDetails)
             Text(
                 text = movieDetails.content.description,
                 fontSize = 14.sp,
@@ -165,6 +166,33 @@ fun MovieDetailsScrollableColumn(
             }
             MoviePicturesList(movieDetails)
         }
+    }
+}
+
+@Composable
+fun MovieDetailsList(movieDetails: MovieDetails, modifier: Modifier = Modifier) {
+    LazyRow(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(20.dp, 19.dp, 50.dp, 0.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.End)
+    ) {
+        items(movieDetails.content.genres.size) {
+            GenreView(movieDetails.content.genres[it].name)
+        }
+    }
+}
+
+@Composable
+fun GenreView(name: String, modifier: Modifier = Modifier) {
+    Card(
+        shape = RoundedCornerShape(4.dp)
+    ) {
+        Text(
+            text = name,
+            fontSize = 14.sp,
+            modifier = modifier.padding(12.dp, 0.dp, 12.dp, 0.dp)
+        )
     }
 }
 
