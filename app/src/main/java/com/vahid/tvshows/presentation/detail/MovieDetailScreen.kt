@@ -171,22 +171,62 @@ fun MovieDetailsScrollableColumn(
 
 @Composable
 fun MovieDetailsList(movieDetails: MovieDetails, modifier: Modifier = Modifier) {
-    LazyRow(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(20.dp, 19.dp, 50.dp, 0.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.End)
-    ) {
-        items(movieDetails.content.genres.size) {
-            GenreView(movieDetails.content.genres[it].name)
+    Column {
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(20.dp, 19.dp, 50.dp, 0.dp),
+            horizontalArrangement = Arrangement.End
+        ) {
+            ColoredDetailView(
+                name = stringResource(
+                    id = R.string.imdb,
+                    movieDetails.content.imdbRate),
+                color = colorResource(id = R.color.imdb_color)
+            )
+            Spacer(modifier = modifier.width(12.dp))
+            ColoredDetailView(
+                name = movieDetails.content.duration.toString(),
+                color = colorResource(id = R.color.background_detail_color)
+            )
+            Spacer(modifier = modifier.width(12.dp))
+            ColoredDetailView(
+                name = movieDetails.content.ages.toString(),
+                color = colorResource(id = R.color.age_color)
+            )
         }
+        LazyRow(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(20.dp, 19.dp, 50.dp, 0.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.End)
+        ) {
+            items(movieDetails.content.genres.size) {
+                GenreView(movieDetails.content.genres[it].name)
+            }
+        }
+    }
+}
+
+@Composable
+fun ColoredDetailView(name: String, color: Color, modifier: Modifier = Modifier) {
+    Card(
+        colors = CardDefaults.cardColors(color),
+        shape = RoundedCornerShape(4.dp)
+    ) {
+        Text(
+            text = name,
+            fontSize = 14.sp,
+            modifier = modifier.padding(12.dp, 0.dp, 12.dp, 0.dp)
+        )
     }
 }
 
 @Composable
 fun GenreView(name: String, modifier: Modifier = Modifier) {
     Card(
-        shape = RoundedCornerShape(4.dp)
+        shape = RoundedCornerShape(4.dp),
+        colors = CardDefaults.cardColors(colorResource(id = R.color.background_detail_color))
     ) {
         Text(
             text = name,
