@@ -37,7 +37,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -52,6 +51,11 @@ import com.vahid.tvshows.data.remote.model.MovieDetails
 import com.vahid.tvshows.data.remote.model.RequestResult
 import com.vahid.tvshows.presentation.SharedData
 import com.vahid.tvshows.presentation.ui.component.SectionHeader
+import com.vahid.tvshows.presentation.ui.theme.AgeColor
+import com.vahid.tvshows.presentation.ui.theme.BackgroundDetailColor
+import com.vahid.tvshows.presentation.ui.theme.ImdbColor
+import com.vahid.tvshows.presentation.ui.theme.LikeBackgroundColor
+import com.vahid.tvshows.presentation.ui.theme.PlayBackgroundColor
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -181,18 +185,19 @@ fun MovieDetailsList(movieDetails: MovieDetails, modifier: Modifier = Modifier) 
             ColoredDetailView(
                 name = stringResource(
                     id = R.string.imdb,
-                    movieDetails.content.imdbRate),
-                color = colorResource(id = R.color.imdb_color)
+                    movieDetails.content.imdbRate
+                ),
+                color = ImdbColor
             )
             Spacer(modifier = modifier.width(12.dp))
             ColoredDetailView(
                 name = movieDetails.content.duration.toString(),
-                color = colorResource(id = R.color.background_detail_color)
+                color = BackgroundDetailColor
             )
             Spacer(modifier = modifier.width(12.dp))
             ColoredDetailView(
                 name = movieDetails.content.ages.toString(),
-                color = colorResource(id = R.color.age_color)
+                color = AgeColor
             )
         }
         LazyRow(
@@ -226,7 +231,7 @@ fun ColoredDetailView(name: String, color: Color, modifier: Modifier = Modifier)
 fun GenreView(name: String, modifier: Modifier = Modifier) {
     Card(
         shape = RoundedCornerShape(4.dp),
-        colors = CardDefaults.cardColors(colorResource(id = R.color.background_detail_color))
+        colors = CardDefaults.cardColors(BackgroundDetailColor)
     ) {
         Text(
             text = name,
@@ -239,7 +244,7 @@ fun GenreView(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun PlayButton(modifier: Modifier = Modifier) {
     Card(
-        colors = CardDefaults.cardColors(colorResource(id = R.color.play_background_color)),
+        colors = CardDefaults.cardColors(PlayBackgroundColor),
         modifier = modifier.height(40.dp)
     ) {
         Row {
@@ -269,7 +274,7 @@ fun LikeButton(movieDetails: MovieDetails, modifier: Modifier = Modifier) {
     var likeStatus by rememberSaveable { mutableStateOf(false) }
 
     Card(
-        colors = CardDefaults.cardColors(colorResource(id = R.color.like_background_color)),
+        colors = CardDefaults.cardColors(LikeBackgroundColor),
         modifier = modifier
             .width(40.dp)
             .height(40.dp)

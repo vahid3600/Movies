@@ -7,9 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="play_background_color">#EEEEEE</color>
-    <color name="like_background_color">#5D6E7F</color>
-    <color name="age_color">#FA4248</color>
-    <color name="background_detail_color">#21272D</color>
-    <color name="imdb_color">#F4AD31</color>
 </resources>
